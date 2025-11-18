@@ -132,6 +132,17 @@ template<class Binary>
 	 PreorderTraversal(root->Right);
  }
 
+ template<class Binary>
+ void PostorderTraversal(BinaryTree<Binary>* root) {
+	 if (root == NULL) {
+		 return;
+	 }
+
+	 PostorderTraversal(root->left);
+	 PostorderTraversal(root->Right);
+	 cout << root->data << " ";
+ }
+
 int main() {
 	cout << "\t\t***Build Tree**" << endl;
 	BinaryTree<int>* root = NULL;
@@ -143,7 +154,8 @@ int main() {
 		cout << "1. Level Order Traversal" << endl;
 		cout << "2. Inorder Traversal" << endl;
 		cout << "3. Preorder Traversal" << endl;
-		cout << "4. Exit" << endl;
+		cout << "4. Postorder Traversal" << endl;
+		cout << "5. Exit" << endl;
 
 		cout << "Enter Your Choice: ";
 		cin >> choice;
@@ -166,6 +178,12 @@ int main() {
 			break;
 		}
 		case 4: {
+			cout << "\t\t**Postorder traversal** " << endl;
+			PostorderTraversal(root);
+			cout << endl;
+			break;
+		}
+		case 5: {
 			cout << "Exit...." << endl;
 			break;
 		}
